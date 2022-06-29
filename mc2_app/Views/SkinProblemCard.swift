@@ -24,6 +24,8 @@ struct SkinProblemCard: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 120)
+                        Spacer()
+                            .frame(height: 20)
                         Text(skinProblem)
                             .font(.callout)
                             .foregroundColor(.white)
