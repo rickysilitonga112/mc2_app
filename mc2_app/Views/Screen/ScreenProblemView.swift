@@ -11,37 +11,35 @@ struct ScreenProblemView: View {
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
     
+    let horizontalPadding: CGFloat = 24
+    
     var body: some View {
         ZStack {
-            VStack {
-                Image("bg_blur")
-                    .resizable()
-                .frame(width: screenWidth, height: 220)
-                
-                Spacer()
-            }
-            
             VStack{
                 HStack {
                     Text("Apa masalah kulit \nwajahmu?")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .lineLimit(2)
-                        .padding(.top, 30)
+                        .padding(.top, 10)
+                        .padding(.horizontal, horizontalPadding)
                         .foregroundColor(.white)
                         .frame(width: screenWidth - 56, alignment: .leading)
                 }
-                .frame(height: 180, alignment: .leading)
+                .frame(width: screenWidth ,height: 280, alignment: .leading)
+                .background(LinearGradient(gradient: Gradient(colors: [Color(red: 248/255, green: 55/255, blue: 15/255, opacity: 0.37), Color(red: 0/255, green: 20/255, blue: 34/255)]), startPoint: .center, endPoint: .bottom))
                 
-                Spacer()
+               
                 
                 HStack(spacing: 12){
                     SkinProblemCard(skinProblem: "Wajah Berjerawat", imageName: "Jerawat")
                     SkinProblemCard(skinProblem: "Wajah Kusam", imageName: "Kusam")
                 }
                 
-                Text("Disini nanti notes")
-                    .foregroundColor(.white)
+                VStack(alignment: .leading) {
+                    Text("Disini nanti notes")
+                        .foregroundColor(.white)
+                }
                 
                 Spacer()
                 
@@ -70,7 +68,7 @@ struct ScreenProblemView: View {
                 Spacer()
                     .frame(height: 40)
             }
-            .padding(.horizontal, 28)
+            .padding(.horizontal, horizontalPadding)
         }
         .frame(width: screenWidth, height: screenHeight)
         .background(Color(red: 0/255, green: 20/255, blue: 34/255))

@@ -11,7 +11,12 @@ struct QuestionModel {
     // question model
     let questionNumber: Int
     let questionTitle: String
-    let choice: [String]
+    let choice: [Choice]
 }
 
+
+struct Choice {
+    let title: String
+    let image: String
+}
 
