@@ -40,6 +40,9 @@ struct ScreenProblemView: View {
                     SkinProblemCard(skinProblem: "Wajah Kusam", imageName: "Kusam")
                 }
                 
+                Text("Disini nanti notes")
+                    .foregroundColor(.white)
+                
                 Spacer()
                 
                 Button {
@@ -65,7 +68,7 @@ struct ScreenProblemView: View {
                 }
                 
                 Spacer()
-                    .frame(height: 20)
+                    .frame(height: 40)
             }
             .padding(.horizontal, 28)
         }
