@@ -13,9 +13,13 @@ struct ScreenProblemView: View {
     
     var body: some View {
         ZStack {
-            Image("bg_blur")
-                .resizable()
-                .frame(width: screenWidth)
+            VStack {
+                Image("bg_blur")
+                    .resizable()
+                .frame(width: screenWidth, height: 220)
+                
+                Spacer()
+            }
             
             VStack{
                 ZStack {
@@ -23,6 +27,7 @@ struct ScreenProblemView: View {
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .lineLimit(2)
+                        .padding(.top, 30)
                         .foregroundColor(.white)
                         .frame(width: screenWidth - 56, alignment: .leading)
                     
@@ -51,7 +56,7 @@ struct ScreenProblemView: View {
                         }
                 }
                 Spacer()
-                    .frame(height: 18)
+                    .frame(height: 30)
                 
                 Button{
                     //sudah tau jenis kulit
@@ -61,13 +66,12 @@ struct ScreenProblemView: View {
                 }
                 
                 Spacer()
-                    .frame(height: 20)
-            }.padding(.horizontal, 28)
-                .background(Color(red: 0/255, green: 20/255, blue: 34/255))
-            
-            
+//                    .frame(height: 20)
+            }
+            .padding(.horizontal, 28)
         }
-        
+        .frame(width: screenWidth, height: screenHeight)
+        .background(Color(red: 0/255, green: 20/255, blue: 34/255))
     }
 }
 
