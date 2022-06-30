@@ -21,21 +21,24 @@ struct QuestionView: View {
                     Image("WajahSatu")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 133)
+                        .frame(height: 160)
                 }
-                .frame(width: screenWidth ,height: 240, alignment: .center)
+                .frame(width: screenWidth ,height: 220, alignment: .center)
                 .background(LinearGradient(gradient: Gradient(colors: [
                     Color(red: 248/255, green: 55/255, blue: 15/255, opacity: 0.37),
                     Color(red: 0/255, green: 20/255, blue: 34/255),
                 ]), startPoint: .center, endPoint: .bottom))
                 
                 
-                Text("Seperti apa kulit wajahmu ketika bangun tidur?")
+                Text("Seperti apa kulit wajahmu ketika bangun tidur ?")
                     .foregroundColor(.white)
                     .font(.title3)
                     .fontWeight(.bold)
                     .padding(.horizontal, kHorizontalPadding)
                     .padding(.top, 20)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .multilineTextAlignment(.leading)
+                
                 
                 VStack(spacing: 14) {
                     QuestionChoiceCell()
