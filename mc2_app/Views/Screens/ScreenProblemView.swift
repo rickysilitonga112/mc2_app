@@ -11,8 +11,6 @@ struct ScreenProblemView: View {
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
     
-    let horizontalPadding: CGFloat = 24
-    
     var body: some View {
         ZStack {
             VStack{
@@ -22,7 +20,7 @@ struct ScreenProblemView: View {
                         .fontWeight(.bold)
                         .lineLimit(2)
                         .padding(.top, 10)
-                        .padding(.horizontal, horizontalPadding)
+                        .padding(.horizontal, kHorizontalPadding)
                         .foregroundColor(.white)
                         .frame(width: screenWidth - 56, alignment: .leading)
                 }
@@ -68,10 +66,10 @@ struct ScreenProblemView: View {
                 Spacer()
                     .frame(height: 40)
             }
-            .padding(.horizontal, horizontalPadding)
+            .padding(.horizontal, kHorizontalPadding)
         }
         .frame(width: screenWidth, height: screenHeight)
-        .background(Color(red: 0/255, green: 20/255, blue: 34/255))
+        .background(Color(red: 0/255, green: 20/255, blue: 34/255).edgesIgnoringSafeArea(.all))
     }
 }
 
