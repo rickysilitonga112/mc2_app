@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D2CEB31286D3EB800573D12 /* IdentificationQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2CEB30286D3EB800573D12 /* IdentificationQuestion.swift */; };
 		56672A63286C8A3C00E0FEFC /* QuestionView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56672A62286C8A3C00E0FEFC /* QuestionView-ViewModel.swift */; };
 		568060F52860B0ED00848F54 /* mc2_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568060F42860B0ED00848F54 /* mc2_appApp.swift */; };
 		568060F72860B0ED00848F54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568060F62860B0ED00848F54 /* ContentView.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D2CEB30286D3EB800573D12 /* IdentificationQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentificationQuestion.swift; sourceTree = "<group>"; };
 		56672A62286C8A3C00E0FEFC /* QuestionView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuestionView-ViewModel.swift"; sourceTree = "<group>"; };
 		568060F12860B0ED00848F54 /* mc2_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mc2_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		568060F42860B0ED00848F54 /* mc2_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mc2_appApp.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				56A8E4012865A30000BF79DB /* ScreenProblemView.swift */,
+				1D2CEB30286D3EB800573D12 /* IdentificationQuestion.swift */,
 				56A8E4032865A31300BF79DB /* DashboardView.swift */,
 				56A8E4052865A36400BF79DB /* IdentificationResultView.swift */,
 				56A8E4072865A44800BF79DB /* QuestionView.swift */,
@@ -192,6 +195,7 @@
 				56A8E4042865A31300BF79DB /* DashboardView.swift in Sources */,
 				56A8E4062865A36400BF79DB /* IdentificationResultView.swift in Sources */,
 				56A8E3FC2865916300BF79DB /* QuestionModel.swift in Sources */,
+				1D2CEB31286D3EB800573D12 /* IdentificationQuestion.swift in Sources */,
 				56672A63286C8A3C00E0FEFC /* QuestionView-ViewModel.swift in Sources */,
 				568060F72860B0ED00848F54 /* ContentView.swift in Sources */,
 				568060F52860B0ED00848F54 /* mc2_appApp.swift in Sources */,
