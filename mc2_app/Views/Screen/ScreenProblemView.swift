@@ -32,7 +32,7 @@ struct ScreenProblemView: View {
                
                 
                 HStack(spacing: 12){
-                    SkinProblemCard(skinProblem: "Wajah Berjerawat", imageName: "Jerawat")
+                    SkinProblemCard(skinProblem: "Wajah Berjerawat", imageName: "jerawat")
                     SkinProblemCard(skinProblem: "Wajah Kusam", imageName: "Kusam")
                 }
                 
