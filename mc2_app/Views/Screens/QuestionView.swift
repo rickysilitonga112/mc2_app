@@ -45,7 +45,7 @@ struct QuestionView: View {
                     
                     VStack(spacing: 14) {
                         ForEach(vm.questionList[vm.currentIndex].choice, id: \.id) {choice in
-                            QuestionChoiceCell()
+                            QuestionChoiceCell(choiceTitle: choice.title)
                         }
                     }
                     Spacer()
@@ -55,7 +55,7 @@ struct QuestionView: View {
                     Spacer()
                     Button {
                         // do something
-                        if vm.currentIndex < vm.questionList.count {
+                        if vm.currentIndex < vm.questionList.count - 1 {
                             vm.currentIndex = vm.currentIndex + 1
                         }
                         
@@ -136,7 +136,6 @@ struct QuestionView: View {
                 Spacer()
                 
             }
-            //            .frame(width: screenWidth, height: screenHeight, alignment: .top)
         }
         .frame(width: screenWidth, height: screenHeight)
         .background(Color(red: 0/255, green: 20/255, blue: 34/255).edgesIgnoringSafeArea(.all))
@@ -146,24 +145,5 @@ struct QuestionView: View {
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
         QuestionView()
-    }
-}
-
-
-struct QuestionChoiceCell: View {
-    var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 8)
-                .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.34), Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.13)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                .opacity(0.26)
-                .shadow(radius: 3)
-            
-            Text("Tampak mengkilap dan berminyak dimana-mana")
-                .multilineTextAlignment(.leading)
-                .font(.headline)
-                .foregroundColor(.white)
-        }
-        .frame(height: 70, alignment: .center)
-        .padding(.horizontal, kHorizontalPadding)
     }
 }
