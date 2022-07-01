@@ -130,9 +130,9 @@
 			children = (
 				56A8E4012865A30000BF79DB /* ScreenProblemView.swift */,
 				56A8E4052865A36400BF79DB /* IdentificationResultView.swift */,
+				1DB7739A286EEB7900A51297 /* SkinTypeView.swift */,
 				56A8E4072865A44800BF79DB /* QuestionView.swift */,
 				56A8E4032865A31300BF79DB /* DashboardView.swift */,
-				1DB7739A286EEB7900A51297 /* SkinTypeView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
