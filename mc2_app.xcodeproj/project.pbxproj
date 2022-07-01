@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D2CEB31286D3EB800573D12 /* IdentificationQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2CEB30286D3EB800573D12 /* IdentificationQuestion.swift */; };
+		1DB7739B286EEB7900A51297 /* SkinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7739A286EEB7900A51297 /* SkinType.swift */; };
 		56672A63286C8A3C00E0FEFC /* QuestionView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56672A62286C8A3C00E0FEFC /* QuestionView-ViewModel.swift */; };
 		567DF99C286DDFC100B511C9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567DF99B286DDFC100B511C9 /* Constant.swift */; };
 		568060F52860B0ED00848F54 /* mc2_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568060F42860B0ED00848F54 /* mc2_appApp.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		1D2CEB30286D3EB800573D12 /* IdentificationQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentificationQuestion.swift; sourceTree = "<group>"; };
+		1DB7739A286EEB7900A51297 /* SkinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinType.swift; sourceTree = "<group>"; };
 		56672A62286C8A3C00E0FEFC /* QuestionView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuestionView-ViewModel.swift"; sourceTree = "<group>"; };
 		567DF99B286DDFC100B511C9 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		568060F12860B0ED00848F54 /* mc2_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mc2_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +135,7 @@
 				56A8E4072865A44800BF79DB /* QuestionView.swift */,
 				1D2CEB30286D3EB800573D12 /* IdentificationQuestion.swift */,
 				56A8E4032865A31300BF79DB /* DashboardView.swift */,
+				1DB7739A286EEB7900A51297 /* SkinType.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56C66CD3286C59410023D31A /* SkinProblemCard.swift in Sources */,
+				1DB7739B286EEB7900A51297 /* SkinType.swift in Sources */,
 				56A8E4082865A44800BF79DB /* QuestionView.swift in Sources */,
 				56F8AEBF286B375700A8693C /* GradientButton.swift in Sources */,
 				56A8E4022865A30000BF79DB /* ScreenProblemView.swift in Sources */,
