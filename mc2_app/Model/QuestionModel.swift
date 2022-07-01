@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct QuestionModel {
+struct QuestionModel: Identifiable {
+    let id = UUID()
     // question model
     let questionNumber: Int
     let questionTitle: String
@@ -15,7 +16,8 @@ struct QuestionModel {
 }
 
 
-struct Choice {
+struct Choice: Identifiable {
+    let id = UUID()
     let title: String
     let image: String
 }

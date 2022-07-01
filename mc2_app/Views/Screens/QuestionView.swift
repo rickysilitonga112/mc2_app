@@ -30,28 +30,35 @@ struct QuestionView: View {
                 ]), startPoint: .center, endPoint: .bottom))
                 
                 
-                Text("Seperti apa kulit wajahmu ketika bangun tidur ?")
-                    .foregroundColor(.white)
-                    .font(.title3)
-                    .fontWeight(.bold)
-                    .padding(.horizontal, kHorizontalPadding)
-                    .padding(.top, 20)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .multilineTextAlignment(.leading)
-                
-                
-                VStack(spacing: 14) {
-                    QuestionChoiceCell()
-                    QuestionChoiceCell()
-                    QuestionChoiceCell()
-                    QuestionChoiceCell()
+                VStack {
+                    Text(vm.questionList[vm.currentIndex].questionTitle)
+                        .foregroundColor(.white)
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .padding(.horizontal, kHorizontalPadding)
+                        .padding(.top, 20)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .multilineTextAlignment(.leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+//                        .background(Color.white)
                     
-                }
+                    
+                    VStack(spacing: 14) {
+                        ForEach(vm.questionList[vm.currentIndex].choice, id: \.id) {choice in
+                            QuestionChoiceCell()
+                        }
+                    }
+                    Spacer()
+                } .frame(height: screenHeight / 2, alignment: .leading)
                 
                 HStack {
                     Spacer()
                     Button {
                         // do something
+                        if vm.currentIndex < vm.questionList.count {
+                            vm.currentIndex = vm.currentIndex + 1
+                        }
+                        
                     } label: {
                         Capsule()
                             .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
@@ -71,6 +78,7 @@ struct QuestionView: View {
                         .background(.white)
                         .frame(width: 220, height: 4, alignment: .center)
                     
+                    // circle
                     HStack(spacing: 24) {
                         Circle()
                             .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
