@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct SkinProblemCard: View {
-    let skinProblem: String
+    let title: String
     let imageName: String
-    @State var isCheck: Bool = false
+    let identifier: SkinProblem
+    
+    @Binding var skinProblem: SkinProblem
+    var action: () -> Void
     
     var body: some View {
         RoundedRectangle(cornerRadius: 8)
-            .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 235/255, blue: 255/255).opacity(0.4), Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.13)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+            .fill(LinearGradient(gradient: Gradient(colors: [
+                Color(red: 255/255, green: 235/255, blue: 255/255).opacity(0.4),
+                Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.13)
+            ]), startPoint: .topLeading, endPoint: .bottomTrailing))
             .opacity(0.26)
             .frame(width: 156, height: 240, alignment: .center)
             .overlay {
@@ -26,7 +32,7 @@ struct SkinProblemCard: View {
                             .frame(width: 120)
                         Spacer()
                             .frame(height: 20)
-                        Text(skinProblem)
+                        Text(title)
                             .font(.callout)
                             .foregroundColor(.white)
                             .fontWeight(.semibold)
@@ -42,23 +48,24 @@ struct SkinProblemCard: View {
                                 .frame(width: 20, height: 20)
                                 .position(x: 156 - 14, y: 14)
                                 .overlay {
-                                    Image(systemName: "checkmark.circle.fill")
-                                        .frame(width: 20, height: 20)
-                                        .position(x: 156 - 14, y: 14)
-                                        .foregroundColor(.white)
-                                        .opacity(isCheck ? 1 : 0)
+                                        Image(systemName: "checkmark.circle.fill")
+                                            .frame(width: 20, height: 20)
+                                            .position(x: 156 - 14, y: 14)
+                                            .foregroundColor(.white)
+                                            .opacity(skinProblem == identifier ? 1 : 0)
+//                                            .transition(.asymmetric(insertion: .scale, removal: .opacity))
+                                            .animation(.easeIn(duration: 0.35))
+                                    
                                 }
                         }
                 }
             }
-            .onTapGesture {
-                isCheck.toggle()
-            }
+            .onTapGesture(perform: action)
     }
 }
 
-struct SkinProblemCard_Previews: PreviewProvider {
-    static var previews: some View {
-        SkinProblemCard(skinProblem: "Kulit Berjerawat", imageName: "Jerawat", isCheck: false)
-    }
-}
+//struct SkinProblemCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SkinProblemCard(skinProblem: "Kulit Berjerawat", imageName: "Jerawat")
+//    }
+//}

@@ -20,7 +20,12 @@ struct QuestionChoiceCell: View {
             Text(choiceTitle)
                 .multilineTextAlignment(.leading)
                 .font(.headline)
+//                .foregroundColor(.black)
                 .foregroundColor(.white)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 20)
+            
+            
         }
         .frame(height: 70, alignment: .center)
         .padding(.horizontal, kHorizontalPadding)

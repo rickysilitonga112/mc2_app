@@ -16,7 +16,7 @@ struct QuestionView: View {
     
     var body: some View {
         ZStack {
-            VStack(alignment: .leading) {
+            VStack {
                 ZStack {
                     Image("WajahSatu")
                         .resizable()
@@ -131,14 +131,16 @@ struct QuestionView: View {
                             }
                     }
                     .frame(height: 20, alignment: .center)
-                } .frame( width: screenWidth - 48, height: 20, alignment: .center) .padding()
+                } .frame( maxWidth: screenWidth - 48, maxHeight: 20, alignment: .center)
+                    .padding()
                 
                 Spacer()
                 
             }
         }
-        .frame(width: screenWidth, height: screenHeight)
+//        .frame(width: screenWidth, height: screenHeight)
         .background(Color(red: 0/255, green: 20/255, blue: 34/255).edgesIgnoringSafeArea(.all))
+//        .navigationBarHidden(true)
     }
 }
 
