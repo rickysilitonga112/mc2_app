@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D12E6A9286FE88000EFD753 /* RoutinePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D12E6A8286FE88000EFD753 /* RoutinePageView.swift */; };
+		1D12E6AB286FFC4100EFD753 /* RoutinePageView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D12E6AA286FFC4100EFD753 /* RoutinePageView2.swift */; };
 		1DB7739B286EEB7900A51297 /* SkinTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7739A286EEB7900A51297 /* SkinTypeView.swift */; };
 		56672A63286C8A3C00E0FEFC /* QuestionView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56672A62286C8A3C00E0FEFC /* QuestionView-ViewModel.swift */; };
 		567DF99C286DDFC100B511C9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567DF99B286DDFC100B511C9 /* Constant.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		1D12E6A8286FE88000EFD753 /* RoutinePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinePageView.swift; sourceTree = "<group>"; };
+		1D12E6AA286FFC4100EFD753 /* RoutinePageView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinePageView2.swift; sourceTree = "<group>"; };
 		1DB7739A286EEB7900A51297 /* SkinTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinTypeView.swift; sourceTree = "<group>"; };
 		56672A62286C8A3C00E0FEFC /* QuestionView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuestionView-ViewModel.swift"; sourceTree = "<group>"; };
 		567DF99B286DDFC100B511C9 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				56A8E4052865A36400BF79DB /* IdentificationResultView.swift */,
 				1DB7739A286EEB7900A51297 /* SkinTypeView.swift */,
 				1D12E6A8286FE88000EFD753 /* RoutinePageView.swift */,
+				1D12E6AA286FFC4100EFD753 /* RoutinePageView2.swift */,
 				56A8E4072865A44800BF79DB /* QuestionView.swift */,
 				56A8E4032865A31300BF79DB /* DashboardView.swift */,
 			);
@@ -227,6 +230,7 @@
 				567FCDF4286EF90300EEBF9F /* QuestionChoiceCell.swift in Sources */,
 				568060F52860B0ED00848F54 /* mc2_appApp.swift in Sources */,
 				567DF99C286DDFC100B511C9 /* Constant.swift in Sources */,
+				1D12E6AB286FFC4100EFD753 /* RoutinePageView2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
