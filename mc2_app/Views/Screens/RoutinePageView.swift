@@ -17,8 +17,8 @@ struct RoutinePageView: View {
                 ZStack{
                     RoundedRectangle(cornerRadius: 24)
                         .fill(LinearGradient(gradient: Gradient(colors: [
-                            Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.40),
-                            Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.13),
+                            Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.10),
+                            Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.10),
                         ]), startPoint: .topLeading, endPoint: .bottomTrailing))
                         .frame(width: screenWidth, height: 474)
                         .edgesIgnoringSafeArea(.all)
