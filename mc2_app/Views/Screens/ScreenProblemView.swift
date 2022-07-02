@@ -59,38 +59,38 @@ struct ScreenProblemView: View {
                     Spacer()
                     
                     NavigationLink(destination: QuestionView(), tag: "question", selection: $session) {
-                        
+                        Button {
+                            // go to questionview
+                            session = "question"
+                        } label: {
+                            Capsule()
+                                .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                .frame(width: 282, height: 50, alignment: .center)
+                                .overlay {
+                                    Text("Ayo cek jenis kulitmu")
+                                        .foregroundColor(Color.white)
+                                        .fontWeight(.bold)
+                                }
+                        }
                     }
                     
-                    NavigationLink(destination: IdentificationResultView(), tag: "result", selection: $session) {
-                        
-                    }
                     
                     
-                    Button {
-                        // go to questionview
-                        session = "question"
-                    } label: {
-                        Capsule()
-                            .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .frame(width: 282, height: 50, alignment: .center)
-                            .overlay {
-                                Text("Ayo cek jenis kulitmu")
-                                    .foregroundColor(Color.white)
-                                    .fontWeight(.bold)
-                            }
-                    }
+                    
                     Spacer()
                         .frame(height: 30)
                     
-                    Button{
-                        //sudah tau jenis kulit
-                       session = "result"
-                        
-                    } label: {
-                        Text("Saya sudah tau jenis kulit saya")
-                            .foregroundColor(.white)
+                    NavigationLink(destination: IdentificationResultView(), tag: "result", selection: $session) {
+                        Button{
+                            //sudah tau jenis kulit
+                            session = "result"
+                            
+                        } label: {
+                            Text("Saya sudah tau jenis kulit saya")
+                                .foregroundColor(.white)
+                        }
                     }
+                    
                     
                     Spacer()
                       
