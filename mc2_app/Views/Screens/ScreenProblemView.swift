@@ -39,11 +39,11 @@ struct ScreenProblemView: View {
                     .background(LinearGradient(gradient: Gradient(colors: [Color(red: 248/255, green: 55/255, blue: 15/255, opacity: 0.37), Color(red: 0/255, green: 20/255, blue: 34/255)]), startPoint: .center, endPoint: .bottom))
                     
                     HStack(spacing: 22) {
-                        SkinProblemCard(title: "Wajah Berjerawat", imageName: "Jerawatt", identifier: SkinProblem.berjerawat, skinProblem: $skinProblem) {
+                        SkinProblemCard(title: "Wajah Berjerawat", imageName: "MUKA_BERJERAWAT", identifier: SkinProblem.berjerawat, skinProblem: $skinProblem) {
                             skinProblem = (skinProblem == .none || skinProblem == .kusam) ? .berjerawat : .none
                          }
                         
-                        SkinProblemCard(title: "Wajah Kusam", imageName: "Kusam", identifier: .kusam, skinProblem: $skinProblem) {
+                        SkinProblemCard(title: "Wajah Kusam", imageName: "MUKA_KUSAM", identifier: .kusam, skinProblem: $skinProblem) {
                             skinProblem = (skinProblem == .none || skinProblem == .berjerawat) ? .kusam : .none
                         }
                     } .padding(.horizontal, kHorizontalPadding)
