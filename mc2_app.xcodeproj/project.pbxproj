@@ -9,7 +9,13 @@
 /* Begin PBXBuildFile section */
 		1D12E6A9286FE88000EFD753 /* RoutinePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D12E6A8286FE88000EFD753 /* RoutinePageView.swift */; };
 		1D12E6AB286FFC4100EFD753 /* RoutinePageView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D12E6AA286FFC4100EFD753 /* RoutinePageView2.swift */; };
+		1D3DFA9B2870747A0050BCCC /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3DFA9A2870747A0050BCCC /* OnBoardingView.swift */; };
+		1D3DFA9D28707A990050BCCC /* OnBoardView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3DFA9C28707A990050BCCC /* OnBoardView2.swift */; };
+		1D3DFA9F287081D70050BCCC /* OnBoardingView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3DFA9E287081D70050BCCC /* OnBoardingView3.swift */; };
+		1D3DFAA12870825B0050BCCC /* OnBoardingView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3DFAA02870825B0050BCCC /* OnBoardingView4.swift */; };
 		1DB7739B286EEB7900A51297 /* SkinTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7739A286EEB7900A51297 /* SkinTypeView.swift */; };
+		1DC148F22871334A00ED30F9 /* RoutinePageView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC148F12871334A00ED30F9 /* RoutinePageView3.swift */; };
+		1DC148F42871AEC700ED30F9 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC148F32871AEC700ED30F9 /* TabBar.swift */; };
 		56672A63286C8A3C00E0FEFC /* QuestionView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56672A62286C8A3C00E0FEFC /* QuestionView-ViewModel.swift */; };
 		567A4FC22870CAAC00083E57 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567A4FC12870CAAC00083E57 /* ViewExtension.swift */; };
 		567DF99C286DDFC100B511C9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567DF99B286DDFC100B511C9 /* Constant.swift */; };
@@ -30,7 +36,13 @@
 /* Begin PBXFileReference section */
 		1D12E6A8286FE88000EFD753 /* RoutinePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinePageView.swift; sourceTree = "<group>"; };
 		1D12E6AA286FFC4100EFD753 /* RoutinePageView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinePageView2.swift; sourceTree = "<group>"; };
+		1D3DFA9A2870747A0050BCCC /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		1D3DFA9C28707A990050BCCC /* OnBoardView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardView2.swift; sourceTree = "<group>"; };
+		1D3DFA9E287081D70050BCCC /* OnBoardingView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView3.swift; sourceTree = "<group>"; };
+		1D3DFAA02870825B0050BCCC /* OnBoardingView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView4.swift; sourceTree = "<group>"; };
 		1DB7739A286EEB7900A51297 /* SkinTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinTypeView.swift; sourceTree = "<group>"; };
+		1DC148F12871334A00ED30F9 /* RoutinePageView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinePageView3.swift; sourceTree = "<group>"; };
+		1DC148F32871AEC700ED30F9 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		56672A62286C8A3C00E0FEFC /* QuestionView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuestionView-ViewModel.swift"; sourceTree = "<group>"; };
 		567A4FC12870CAAC00083E57 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		567DF99B286DDFC100B511C9 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -66,6 +78,7 @@
 				56F8AEBE286B375700A8693C /* GradientButton.swift */,
 				56C66CD2286C59410023D31A /* SkinProblemCard.swift */,
 				567FCDF3286EF90300EEBF9F /* QuestionChoiceCell.swift */,
+				1DC148F32871AEC700ED30F9 /* TabBar.swift */,
 				567A4FC12870CAAC00083E57 /* ViewExtension.swift */,
 			);
 			path = Components;
@@ -138,13 +151,18 @@
 		56F8AEBD286B373700A8693C /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				56A8E4032865A31300BF79DB /* DashboardView.swift */,
 				56A8E4012865A30000BF79DB /* ScreenProblemView.swift */,
 				56A8E4052865A36400BF79DB /* IdentificationResultView.swift */,
 				1DB7739A286EEB7900A51297 /* SkinTypeView.swift */,
 				1D12E6A8286FE88000EFD753 /* RoutinePageView.swift */,
 				1D12E6AA286FFC4100EFD753 /* RoutinePageView2.swift */,
+				1DC148F12871334A00ED30F9 /* RoutinePageView3.swift */,
 				56A8E4072865A44800BF79DB /* QuestionView.swift */,
-				56A8E4032865A31300BF79DB /* DashboardView.swift */,
+				1D3DFA9A2870747A0050BCCC /* OnBoardingView.swift */,
+				1D3DFA9C28707A990050BCCC /* OnBoardView2.swift */,
+				1D3DFA9E287081D70050BCCC /* OnBoardingView3.swift */,
+				1D3DFAA02870825B0050BCCC /* OnBoardingView4.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -222,18 +240,24 @@
 				56C66CD3286C59410023D31A /* SkinProblemCard.swift in Sources */,
 				1DB7739B286EEB7900A51297 /* SkinTypeView.swift in Sources */,
 				56A8E4082865A44800BF79DB /* QuestionView.swift in Sources */,
+				1D3DFAA12870825B0050BCCC /* OnBoardingView4.swift in Sources */,
 				56F8AEBF286B375700A8693C /* GradientButton.swift in Sources */,
 				56A8E4022865A30000BF79DB /* ScreenProblemView.swift in Sources */,
+				1DC148F42871AEC700ED30F9 /* TabBar.swift in Sources */,
 				56A8E4042865A31300BF79DB /* DashboardView.swift in Sources */,
 				567A4FC22870CAAC00083E57 /* ViewExtension.swift in Sources */,
 				56A8E4062865A36400BF79DB /* IdentificationResultView.swift in Sources */,
 				56A8E3FC2865916300BF79DB /* QuestionModel.swift in Sources */,
+				1D3DFA9D28707A990050BCCC /* OnBoardView2.swift in Sources */,
+				1D3DFA9F287081D70050BCCC /* OnBoardingView3.swift in Sources */,
 				1D12E6A9286FE88000EFD753 /* RoutinePageView.swift in Sources */,
 				56672A63286C8A3C00E0FEFC /* QuestionView-ViewModel.swift in Sources */,
 				568060F72860B0ED00848F54 /* ContentView.swift in Sources */,
 				567FCDF4286EF90300EEBF9F /* QuestionChoiceCell.swift in Sources */,
 				568060F52860B0ED00848F54 /* mc2_appApp.swift in Sources */,
+				1D3DFA9B2870747A0050BCCC /* OnBoardingView.swift in Sources */,
 				567DF99C286DDFC100B511C9 /* Constant.swift in Sources */,
+				1DC148F22871334A00ED30F9 /* RoutinePageView3.swift in Sources */,
 				1D12E6AB286FFC4100EFD753 /* RoutinePageView2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
