@@ -29,7 +29,7 @@ struct QuestionView: View {
                 
                 
                 VStack {
-                    Text(vm.questionList[vm.currentIndex].questionTitle)
+                    Text(vm.questionList[vm.currentIndex - 1].questionTitle)
                         .foregroundColor(.white)
                         .font(.title3)
                         .fontWeight(.bold)
@@ -41,20 +41,22 @@ struct QuestionView: View {
                     
                     
                     VStack(spacing: 14) {
-                        ForEach(vm.questionList[vm.currentIndex].choice, id: \.id) {choice in
+                        ForEach(vm.questionList[vm.currentIndex - 1].choice, id: \.id) {choice in
                             QuestionChoiceCell(choiceTitle: choice.title)
                         }
                     }
+                    Spacer()
                 }
                 .frame(height: screenHeight / 2, alignment: .leading)
                 .padding(.vertical)
                 
+                Spacer()
+                
                 VStack {
                     HStack {
-                        Spacer()
                         Button {
                             // do something
-                            if vm.currentIndex < vm.questionList.count - 1 {
+                            if vm.currentIndex < vm.questionList.count {
                                 vm.currentIndex = vm.currentIndex + 1
                             }
                             
@@ -68,81 +70,59 @@ struct QuestionView: View {
                                         .fontWeight(.bold)
                                 }
                         }
-                        
-                        Spacer()
                     }
-                    .padding()
-                    .padding(.top, 10)
+                    
+                    Spacer()
+                        .frame(height: 24)
                     
                     ZStack(alignment: .center) {
-                        Divider()
-                            .background(.white)
-                            .frame(width: 220, height: 4, alignment: .center)
                         
+                        Rectangle()
+                            .frame(width: 220, height: 2)
+                            .foregroundColor(.white)
                         // circle
-                        HStack(spacing: 24) {
-                            Circle()
-                                .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                                .frame(width: 20, height: 20, alignment: .center)
-                                .overlay {
-                                    Text("1")
-                                        .font(.footnote)
-                                        .foregroundColor(.white)
+                        ZStack {
+                            HStack(spacing: 24) {
+                                ForEach(0 ..< vm.questionList.count, id: \.self) { item in
+                                    Circle()
+                                        .if(vm.currentIndex == item + 1, transform: { view in
+                                            view.fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                        })
+                                            .else(elseTransform: { view in
+                                                view.fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 255/255, blue: 255/255), Color(red: 255/255, green: 255/255, blue: 255/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                            })
+                                        .frame(width: 20, height: 20, alignment: .center)
+                                        .overlay {
+                                            Text("\(item + 1)")
+                                                .font(.footnote)
+                                                .foregroundColor((vm.currentIndex == item + 1) ? .white : .black)
+                                        }
+                                        .onTapGesture {
+                                            print("VM: \(vm.currentIndex)")
+                                            print("Item: \(item)")
+                                            
+                                            if vm.currentIndex >= item + 1 {
+                                                vm.currentIndex = item + 1
+                                            }
+                                        }
                                 }
-                            Circle()
-                                .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                                .frame(width: 20, height: 20, alignment: .center)
-                                .overlay {
-                                    Text("2")
-                                        .font(.footnote)
-                                        .foregroundColor(.white)
-                                }
-                            Circle()
-                                .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                                .frame(width: 20, height: 20, alignment: .center)
-                                .overlay {
-                                    Text("3")
-                                        .font(.footnote)
-                                        .foregroundColor(.white)
-                                }
-                            Circle()
-                                .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                                .frame(width: 20, height: 20, alignment: .center)
-                                .overlay {
-                                    Text("4")
-                                        .font(.footnote)
-                                        .foregroundColor(.white)
-                                }
-                            Circle()
-                                .fill(.gray)
-                                .frame(width: 20, height: 20, alignment: .center)
-                                .overlay {
-                                    Text("5")
-                                        .font(.footnote)
-                                        .foregroundColor(.black)
-                                }
+                            }
+                            .frame(height: 20, alignment: .center)
                             
-                            Circle()
-                                .fill(.gray)
-                                .frame(width: 20, height: 20, alignment: .center)
-                                .overlay {
-                                    Text("6")
-                                        .font(.footnote)
-                                        .foregroundColor(.black)
-                                }
+                            
                         }
-                        .frame(height: 20, alignment: .center)
-                    } .frame( maxWidth: screenWidth - 48, maxHeight: 20, alignment: .center)
-                        .padding()
+                    }
+//                    .frame( maxWidth: screenWidth - 48, maxHeight: 20, alignment: .center)
+                    Spacer()
                 }
-                Spacer()
                 
+                Spacer()
             }
-            .frame(maxHeight: screenHeight)
         }
-//        .frame(width: screenWidth, height: screenHeight)
+        .frame(width: screenWidth, height: screenHeight)
         .background(Color(red: 0/255, green: 20/255, blue: 34/255).edgesIgnoringSafeArea(.all))
 //        .navigationBarHidden(true)
+        
     }
 }
 

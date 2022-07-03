@@ -27,7 +27,7 @@ struct QuestionChoiceCell: View {
             
             
         }
-        .frame(height: 70, alignment: .center)
+        .frame(height: 68, alignment: .leading)
         .padding(.horizontal, kHorizontalPadding)
     }
 }

@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension QuestionView {
     @MainActor class ViewModel: ObservableObject {
-        @Published var currentIndex: Int = 0
+        @Published var currentIndex: Int = 1
         
         let questionList: [QuestionModel] = [
             QuestionModel(
@@ -32,7 +33,17 @@ extension QuestionView {
                 ]
             ),
             QuestionModel(
-                questionNumber: 2,
+                questionNumber: 3,
+                questionTitle: "Seperti apa tekstur kulit wajahmu?",
+                choice: [
+                    Choice(title: "Terasa tidak rata dan sedikit datar", image: "jerawat"),
+                    Choice(title: "Kulit wajah tampak sedikit mengilap", image: "jerawat"),
+                    Choice(title: "Terasa kasar dan kencang", image: "jerawat"),
+                    Choice(title: "Terasa kasar, berminyak, ataupun lembut pada area yang berbeda", image: "jerawat")
+                ]
+            ),
+            QuestionModel(
+                questionNumber: 4,
                 questionTitle: "Saat difoto apakah wajahmu terlihat mengilap?",
                 choice: [
                     Choice(title: "Selalu", image: "jerawat"),
@@ -41,16 +52,37 @@ extension QuestionView {
                     Choice(title: "Tidak pernah", image: "jerawat")
                 ]
             ),
+            QuestionModel(
+                questionNumber: 5,
+                questionTitle: "Saat berada di lingkungan dengan kelembaban rendah, bagaimana kulit wajahmu? (saat tidak pakai produk apapun)",
+                choice: [
+                    Choice(title: "Terlihat mengilap, dan saya merasa membutuhkan moisturizers", image: "jerawat"),
+                    Choice(title: "Saya merasa biasa-biasa saja", image: "jerawat"),
+                    Choice(title: "Terasa kencang dan kaku pada area wajah yang kering", image: "jerawat"),
+                    Choice(title: "Terasa sangat kering dan pecah-pecah", image: "jerawat")
+                ]
+            ),
+            QuestionModel(
+                questionNumber: 6,
+                questionTitle: "Apakah wajahmu pernah mengalami komedo hitam atau komedo putih?",
+                choice: [
+                    Choice(title: "Selalu", image: "jerawat"),
+                    Choice(title: "Jarang", image: "jerawat"),
+                    Choice(title: "Kadang-kadang", image: "jerawat"),
+                    Choice(title: "Tidak pernah", image: "jerawat")
+                ]
+            ),
+            
         ]
-        
-        
-        func getIdentificationResult() {
-            // identification result
-        }
         
         func setCurrentIndex(newIndex: Int) {
             self.currentIndex = newIndex
         }
+
         
+        func getIdentificationResult() {
+            // identification result
+        }
+                
     }
 }
