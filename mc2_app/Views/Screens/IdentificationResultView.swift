@@ -47,9 +47,14 @@ struct IdentificationResultView: View {
                             .opacity(0.26)
                             .shadow(radius: 3)
                             .frame(width: 334, height: 215)
-                        Text("Tips")
-                            .frame(width: 330, alignment: .topLeading)
-                            .foregroundColor(.white)
+                        VStack{
+                            Text("Tips")
+                                .frame(width: 330, alignment: .topLeading)
+                                .foregroundColor(.white)
+                                .padding()
+                            Spacer()
+                        }
+                     
                            
                     }
                  

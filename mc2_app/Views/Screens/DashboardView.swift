@@ -123,7 +123,7 @@ struct DashboardView: View {
                             Color(red: 248/255, green: 55/255, blue: 15/255, opacity: 0.37),
                             Color(red: 0/255, green: 20/255, blue: 34/255),
                         ]), startPoint: .center, endPoint: .bottom))
-                
+                    
                 }
                 Spacer()
             }.frame(width: screenWidth, height: screenHeight)

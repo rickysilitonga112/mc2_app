@@ -15,6 +15,7 @@
 		1D3DFAA12870825B0050BCCC /* OnBoardingView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3DFAA02870825B0050BCCC /* OnBoardingView4.swift */; };
 		1DB7739B286EEB7900A51297 /* SkinTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7739A286EEB7900A51297 /* SkinTypeView.swift */; };
 		1DC148F22871334A00ED30F9 /* RoutinePageView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC148F12871334A00ED30F9 /* RoutinePageView3.swift */; };
+		1DC148F42871AEC700ED30F9 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC148F32871AEC700ED30F9 /* TabBar.swift */; };
 		56672A63286C8A3C00E0FEFC /* QuestionView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56672A62286C8A3C00E0FEFC /* QuestionView-ViewModel.swift */; };
 		567DF99C286DDFC100B511C9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567DF99B286DDFC100B511C9 /* Constant.swift */; };
 		567FCDF4286EF90300EEBF9F /* QuestionChoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FCDF3286EF90300EEBF9F /* QuestionChoiceCell.swift */; };
@@ -40,6 +41,7 @@
 		1D3DFAA02870825B0050BCCC /* OnBoardingView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView4.swift; sourceTree = "<group>"; };
 		1DB7739A286EEB7900A51297 /* SkinTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinTypeView.swift; sourceTree = "<group>"; };
 		1DC148F12871334A00ED30F9 /* RoutinePageView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinePageView3.swift; sourceTree = "<group>"; };
+		1DC148F32871AEC700ED30F9 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		56672A62286C8A3C00E0FEFC /* QuestionView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuestionView-ViewModel.swift"; sourceTree = "<group>"; };
 		567DF99B286DDFC100B511C9 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		567FCDF3286EF90300EEBF9F /* QuestionChoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionChoiceCell.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				56F8AEBE286B375700A8693C /* GradientButton.swift */,
 				56C66CD2286C59410023D31A /* SkinProblemCard.swift */,
 				567FCDF3286EF90300EEBF9F /* QuestionChoiceCell.swift */,
+				1DC148F32871AEC700ED30F9 /* TabBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				1D3DFAA12870825B0050BCCC /* OnBoardingView4.swift in Sources */,
 				56F8AEBF286B375700A8693C /* GradientButton.swift in Sources */,
 				56A8E4022865A30000BF79DB /* ScreenProblemView.swift in Sources */,
+				1DC148F42871AEC700ED30F9 /* TabBar.swift in Sources */,
 				56A8E4042865A31300BF79DB /* DashboardView.swift in Sources */,
 				56A8E4062865A36400BF79DB /* IdentificationResultView.swift in Sources */,
 				56A8E3FC2865916300BF79DB /* QuestionModel.swift in Sources */,
