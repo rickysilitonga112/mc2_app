@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct SkinType: View {
+struct SkinTypeView: View {
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
     
-    @State private var choosenSkinType: Int = 10
+    @State private var choosenSkinType: Int? = nil
     
     private let skinType: [String] = [
         "Saya memiliki jenis kulit Berminyak",
@@ -55,7 +55,7 @@ struct SkinType: View {
                                 .frame(width: 332, height: 67, alignment: .leading)
                         }
                         .onTapGesture(perform: {
-                            choosenSkinType = (choosenSkinType == index) ? 10 : index
+                            choosenSkinType = (choosenSkinType == index) ? nil : index
                             
                         })
                         .if(choosenSkinType == index) { view in
@@ -68,8 +68,11 @@ struct SkinType: View {
                     
                     
                     Button {
-                        let finalUserSkinType = skinType[choosenSkinType]
-                        print(finalUserSkinType)
+                        print(choosenSkinType)
+                        if let choosenSkinType = choosenSkinType {
+                            let finalUserSkinType = skinType[choosenSkinType]
+                            print(finalUserSkinType)
+                        }
                     } label: {
                         Capsule()
                             .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
@@ -91,9 +94,9 @@ struct SkinType: View {
         
 }
 
-struct SkinType_Previews: PreviewProvider {
+struct SkinTypeView_Previews: PreviewProvider {
     static var previews: some View {
-        SkinType()
+        SkinTypeView()
     }
   }
 }

@@ -13,6 +13,7 @@ struct QuestionView: View {
     private let screenHeight = UIScreen.main.bounds.size.height
     
     @StateObject private var vm = ViewModel()
+    
     @State var buttonText: String = "Selanjutnya"
     var body: some View {
         ZStack {
@@ -56,7 +57,7 @@ struct QuestionView: View {
                         Button {
                             // do something
                             if vm.currentQuestionIndex < vm.questionList.count - 1 {
-                                vm.currentQuestionIndex = vm.currentQuestionIndex + 1
+                                vm.currentQuestionIndex += 1
                             } else {
                                 print("Go to result")
                                 buttonText = "Lihat Hasil"

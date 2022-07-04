@@ -10,6 +10,7 @@ import SwiftUI
 
 extension QuestionView {
     @MainActor class ViewModel: ObservableObject {
+        
         @Published var currentQuestionIndex: Int = 0
         @Published var currentAnswerIndex: Int = 0
         

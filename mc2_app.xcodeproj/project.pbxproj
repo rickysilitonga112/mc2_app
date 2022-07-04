@@ -151,14 +151,14 @@
 		56F8AEBD286B373700A8693C /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				56A8E4032865A31300BF79DB /* DashboardView.swift */,
 				56A8E4012865A30000BF79DB /* ScreenProblemView.swift */,
-				56A8E4052865A36400BF79DB /* IdentificationResultView.swift */,
+				56A8E4072865A44800BF79DB /* QuestionView.swift */,
 				1DB7739A286EEB7900A51297 /* SkinTypeView.swift */,
+				56A8E4052865A36400BF79DB /* IdentificationResultView.swift */,
+				56A8E4032865A31300BF79DB /* DashboardView.swift */,
 				1D12E6A8286FE88000EFD753 /* RoutinePageView.swift */,
 				1D12E6AA286FFC4100EFD753 /* RoutinePageView2.swift */,
 				1DC148F12871334A00ED30F9 /* RoutinePageView3.swift */,
-				56A8E4072865A44800BF79DB /* QuestionView.swift */,
 				1D3DFA9A2870747A0050BCCC /* OnBoardingView.swift */,
 				1D3DFA9C28707A990050BCCC /* OnBoardView2.swift */,
 				1D3DFA9E287081D70050BCCC /* OnBoardingView3.swift */,

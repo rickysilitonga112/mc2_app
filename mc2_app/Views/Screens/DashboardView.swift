@@ -10,6 +10,10 @@ import SwiftUI
 struct DashboardView: View {
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
+    
+    @State var skinType: String
+    @State var skinProblem: String
+    
     var body: some View {
         ZStack{
             VStack{
@@ -43,7 +47,7 @@ struct DashboardView: View {
                                 .opacity(0.15)
                                 .shadow(radius: 3)
                                 .frame(width: 334, height: 161)
-                            HStack{
+                            HStack(alignment: .center){
                                 RoundedRectangle(cornerRadius: 16)
                                     .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.40), Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.13)]), startPoint: .topLeading, endPoint: .bottomTrailing))
                                     .opacity(0.26)
@@ -56,12 +60,12 @@ struct DashboardView: View {
                                             .frame(width: 80)
                                     }
                                 VStack{
-                                    Text("Kulit Berminyak")
+                                    Text("Kulit \(skinType)")
                                         .foregroundColor(.white)
                                         .font(.title3)
                                         .fontWeight(.semibold)
                                         .frame(width: 188, alignment: .leading)
-                                    Text("Hasil tes terakhir kamu menunjukkan bahwa jenis kulit kamu **berminyak** dan juga **berjerawat**")
+                                    Text("Hasil tes terakhir kamu menunjukkan bahwa jenis kulit kamu **\(skinType)** dan juga **\(skinProblem)**")
                                         .foregroundColor(.white)
                                         .font(.callout)
                                         .frame(width: 188, height: 90)
@@ -134,6 +138,6 @@ struct DashboardView: View {
 
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        DashboardView()
+        DashboardView(skinType: "berminyak", skinProblem: "kusam")
     }
 }

@@ -72,10 +72,10 @@ struct ScreenProblemView: View {
                     Spacer()
                         .frame(height: 30)
                     
-                    NavigationLink(destination: IdentificationResultView(), tag: "result", selection: $session) {
+                    NavigationLink(destination: SkinTypeView(), tag: "skintype", selection: $session) {
                         Button{
                             //sudah tau jenis kulit
-                            session = "result"
+                            session = "skintype"
                             
                         } label: {
                             Text("Saya sudah tau jenis kulit saya")
