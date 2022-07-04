@@ -12,7 +12,7 @@ struct QuestionModel: Identifiable {
     // question model
     let questionNumber: Int
     let questionTitle: String
-    let choice: [Choice]
+    let choices: [Choice]
 }
 
 

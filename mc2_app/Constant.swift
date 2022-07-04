@@ -42,4 +42,9 @@ let kRedGradientBG = LinearGradient(gradient: Gradient(colors: [
     Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.13)
     ]), startPoint: .topLeading, endPoint: .bottomTrailing)
 
+let kCellGradientBg = LinearGradient(gradient: Gradient(colors: [
+    Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.34),
+    Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.13)
+    ]), startPoint: .topLeading, endPoint: .bottomTrailing)
+
 let primaryBG = Color(red: 0/255, green: 20/255, blue: 34/255)

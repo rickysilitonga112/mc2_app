@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct QuestionChoiceCell: View {
+    @Binding var vm: Any
     let choiceTitle: String
     
     var body: some View {
@@ -29,12 +30,8 @@ struct QuestionChoiceCell: View {
         }
         .frame(height: 68, alignment: .leading)
         .padding(.horizontal, kHorizontalPadding)
-    }
-}
-
-
-struct QuestionChoiceCell_Previews: PreviewProvider {
-    static var previews: some View {
-        QuestionChoiceCell(choiceTitle: "Tampak mengilap dan berminyak dimana-mana")
+        .onTapGesture {
+            // do something
+        }
     }
 }

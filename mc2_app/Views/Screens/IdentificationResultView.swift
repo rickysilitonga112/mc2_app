@@ -11,13 +11,17 @@ struct IdentificationResultView: View {
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
     
+    
+    let jenisKulit: String
+    let masalahKulit: String
+    
     var body: some View {
         
         ZStack{
             VStack{
                 VStack{
                     Spacer()
-                        .frame(height: 600)
+                        .frame(height: 500)
                     RoundedRectangle(cornerRadius: 24)
                         .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.40), Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.13)]), startPoint: .topLeading, endPoint: .bottomTrailing))
                         .opacity(0.26)
@@ -35,27 +39,33 @@ struct IdentificationResultView: View {
                         .fontWeight(.medium)
                         .foregroundColor(.white)
                     Spacer()
-                    Text("Kamu memiliki jenis kulit berminyak,dan permasalahan kulit wajahmu **Berjerawat**")
+                    Text("Kamu memiliki jenis kulit **\(jenisKulit)** dan permasalahan kulit wajahmu\n **\(masalahKulit)**")
+                        .font(.title3)
                         .multilineTextAlignment(.center)
-                        .frame(width: 281, height: 90)
+                        .frame(width: screenWidth - 56, height: 90)
                         .foregroundColor(.white)
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 24)
-                            .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.40), Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.13)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .opacity(0.26)
-                            .shadow(radius: 3)
-                            .frame(width: 334, height: 215)
-                        VStack{
-                            Text("Tips")
-                                .frame(width: 330, alignment: .topLeading)
-                                .foregroundColor(.white)
-                                .padding()
-                            Spacer()
-                        }
-                     
-                           
+                
+                    
+                    VStack {
+                        Text("Gunakan cleanser yang mengandung bahan kimia untuk membuat chum bucket.")
+                            .frame(width: 330, alignment: .topLeading)
+                            .foregroundColor(.white)
+                            .padding(.horizontal)
+                            .padding(.top, 5)
+                        
+                        Text("Gunakan cleanser yang mengandung bahan kimia untuk membuat chum bucket.")
+                            .frame(width: 330, alignment: .topLeading)
+                            .foregroundColor(.white)
+                            .padding(.horizontal)
+                            .padding(.top, 5)
+                        
+                        Spacer()
                     }
-                 
+                    .frame(height: screenHeight / 4, alignment: .leading)
+                    .padding(.top, 35)
+                    
+                    Spacer()
+                    
                     Button {
                         // do something
                     } label: {
@@ -68,19 +78,15 @@ struct IdentificationResultView: View {
                                     .fontWeight(.bold)
                             }
                     }
+                    
+                    Spacer()
+                        .frame(height: 25)
+                    
                     Button {
                         // do something
                     } label: {
-                        Capsule()
-                            .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .frame(width: 282, height: 50, alignment: .center)
-                            .overlay {
-                                Text("Ikuti tantangan 21 hari rutin skincare")
-                                    .foregroundColor(Color.white)
-                                    .fontWeight(.bold)
-                                    .font(.subheadline)
-                            }
-                        
+                       Text("Ikuti challange 21 hari rutin skincare")
+                            .foregroundColor(.white)
                     }
                 
                 }
@@ -99,7 +105,7 @@ struct IdentificationResultView: View {
     
     struct IdentificationResultView_Previews: PreviewProvider {
         static var previews: some View {
-            IdentificationResultView()
+            IdentificationResultView(jenisKulit: "Berminyak", masalahKulit: "Berjerawat")
         }
     }
 }

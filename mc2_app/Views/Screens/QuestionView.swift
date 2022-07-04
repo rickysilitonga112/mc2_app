@@ -15,14 +15,20 @@ struct QuestionView: View {
     @StateObject private var vm = ViewModel()
     
     @State var buttonText: String = "Selanjutnya"
+    @State var selectedAnswer: String = ""
+    @State var answerIndex: Int = -1
+    
+    @State var session: String? = nil
+    
     var body: some View {
         ZStack {
             VStack {
                 ZStack {
-                    Image("WajahSatu")
+                    Image("PAGE_1A")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 160)
+                        .padding(.top)
                 }
                 .frame(width: screenWidth ,height: 200, alignment: .center)
                 .background(LinearGradient(gradient: Gradient(colors: [
@@ -38,11 +44,44 @@ struct QuestionView: View {
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.leading)
                         .frame(maxWidth: .infinity, alignment: .leading)
-//                        .background(Color.white)
                     
                     VStack(spacing: 14) {
-                        ForEach(vm.questionList[vm.currentQuestionIndex].choice, id: \.id) {choice in
-                            QuestionChoiceCell(choiceTitle: choice.title)
+                        ForEach(vm.questionList[vm.currentQuestionIndex].choices, id: \.id) { choice in
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .if(selectedAnswer == choice.title) { cell in
+                                        cell.fill(kCellGradientBg)
+                                    }
+                                    .opacity(0.26)
+                                    .shadow(radius: 3)
+                                    .border(.white, width: (selectedAnswer == choice.title) ? 1.5 : 0.5)
+                                    
+                                
+                                Text(choice.title)
+                                    .multilineTextAlignment(.leading)
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.horizontal, 20)
+                                
+                                
+                            }
+                            .frame(height: 68, alignment: .leading)
+                            .padding(.horizontal, kHorizontalPadding)
+                            .onTapGesture {
+                                selectedAnswer = choice.title
+                                if selectedAnswer != "" {
+                                    answerIndex = vm.getAnswerIndex(answerTitle: choice.title)
+                                    
+                                    // MARK: - Debugging
+                                    print(answerIndex)
+                                    
+                                    if vm.currentQuestionIndex == vm.questionList.count - 1 {
+                                        buttonText = "Lihat hasil"
+                                    }
+                                }
+                                
+                            }
                         }
                     }
                     Spacer()
@@ -54,24 +93,52 @@ struct QuestionView: View {
                 
                 VStack {
                     HStack {
-                        Button {
-                            // do something
-                            if vm.currentQuestionIndex < vm.questionList.count - 1 {
-                                vm.currentQuestionIndex += 1
-                            } else {
-                                print("Go to result")
-                                buttonText = "Lihat Hasil"
-                            }
-                            
-                        } label: {
-                            Capsule()
-                                .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                                .frame(width: 282, height: 50, alignment: .center)
-                                .overlay {
-                                    Text(buttonText)
-                                        .foregroundColor(Color.white)
-                                        .fontWeight(.bold)
+                        NavigationLink(destination: IdentificationResultView(jenisKulit: "Berminyak", masalahKulit: "Berjerawat"), tag: "result", selection: $session) {
+                            Button {
+                                // do something
+                                if selectedAnswer != "" {
+                                    if vm.currentQuestionIndex < vm.questionList.count - 1 {
+                                        vm.currentQuestionIndex += 1
+                                        // simpan jawaban user
+                                        print("tambahkan jawaban user ke array jawaban user")
+                                        
+                                        if vm.userAnswerList.count <= vm.currentQuestionIndex {
+                                            vm.userAnswerList.append(answerIndex)
+                                        } else {
+                                            vm.userAnswerList[vm.currentQuestionIndex - 1] = answerIndex
+                                        }
+                                        
+                                        // debug
+                                        print(vm.userAnswerList)
+                                        
+                                        if vm.currentQuestionIndex == vm.questionList.count {
+                                            vm.userAnswerList.append(answerIndex)
+                                            print(vm.userAnswerList)
+                                            print("go to new page")
+                                        }
+                                        
+                                        selectedAnswer = ""
+                                    } else {
+                                        vm.userAnswerList.append(answerIndex)
+                                        print(vm.userAnswerList)
+                                        print("go to new page")
+                                        selectedAnswer = ""
+                                        
+                                        // MARK: - go to new page
+                                        session = "result"
+                                    }
                                 }
+                                
+                            } label: {
+                                Capsule()
+                                    .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                    .frame(width: 282, height: 50, alignment: .center)
+                                    .overlay {
+                                        Text(buttonText)
+                                            .foregroundColor(Color.white)
+                                            .fontWeight(.bold)
+                                    }
+                            }
                         }
                     }
                     
@@ -101,11 +168,12 @@ struct QuestionView: View {
                                                 .foregroundColor((vm.currentQuestionIndex == item) ? .white : .black)
                                         }
                                         .onTapGesture {
-                                            print("VM: \(vm.currentQuestionIndex)")
-                                            print("Item: \(item)")
+                                            // MARK: - Debugging
+//                                            print("VM: \(vm.currentQuestionIndex)")
+//                                            print("Item: \(item)")
                                             
-                                            if vm.currentQuestionIndex >= item + 1 {
-                                                vm.currentQuestionIndex = item + 1
+                                            if vm.currentQuestionIndex >= item {
+                                                vm.currentQuestionIndex = item 
                                             }
                                         }
                                 }

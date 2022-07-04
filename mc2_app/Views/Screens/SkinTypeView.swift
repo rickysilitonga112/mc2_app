@@ -42,10 +42,13 @@ struct SkinTypeView: View {
                         
                         ZStack {
                             RoundedRectangle(cornerRadius: 8)
-                                .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.40), Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.13)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                .if(choosenSkinType == index) { cell in
+                                    cell.fill(kCellGradientBg)
+                                }
                                 .opacity(0.26)
                                 .shadow(radius: 3)
                                 .frame(width: 332, height: 67)
+                                .border(.white, width: (choosenSkinType == index) ? 1.5 : 0.5)
                                 
                             Text(skinType[index])
                                 .font(.body)
@@ -54,13 +57,14 @@ struct SkinTypeView: View {
                                 .padding(.horizontal)
                                 .frame(width: 332, height: 67, alignment: .leading)
                         }
+                        
                         .onTapGesture(perform: {
                             choosenSkinType = (choosenSkinType == index) ? nil : index
                             
                         })
-                        .if(choosenSkinType == index) { view in
-                            view.border(.white, width: 2)
-                        }
+//                        .if(choosenSkinType == index) { view in
+//                            view.border(.white, width: 2)
+//                        }
                     }
                     
                     Spacer()
@@ -68,7 +72,7 @@ struct SkinTypeView: View {
                     
                     
                     Button {
-                        print(choosenSkinType)
+                        print(choosenSkinType ?? "")
                         if let choosenSkinType = choosenSkinType {
                             let finalUserSkinType = skinType[choosenSkinType]
                             print(finalUserSkinType)

@@ -14,21 +14,24 @@ extension QuestionView {
         @Published var currentQuestionIndex: Int = 0
         @Published var currentAnswerIndex: Int = 0
         
+        // pake dictionary
+        @Published var userAnswerList: [Int] = []
+        
         let questionList: [QuestionModel] = [
             QuestionModel(
                 questionNumber: 1,
                 questionTitle: "Seperti apa kulit wajahmu ketika bangun tidur?",
-                choice: [
-                    Choice(title: "Tampak mengilap dimana-mana", image: "jerawat"),
-                    Choice(title: "Kulit wajah tampak sedikit mengilap", image: "jerawat"),
-                    Choice(title: "Kulit wajah tampak berminya pada area dahi, hidung, dan dagu", image: "jerawat"),
-                    Choice(title: "Kulit wajah tampak biasa dan tidak mengilap", image: "jerawat")
+                choices: [
+                    Choice(title: "Tampak mengilap dimana-mana", image: "PAGE_1A"),
+                    Choice(title: "Kulit wajah tampak sedikit mengilap", image: "PAGE_1B"),
+                    Choice(title: "Kulit wajah tampak berminya pada area dahi, hidung, dan dagu", image: "PAGE_1C"),
+                    Choice(title: "Kulit wajah tampak biasa dan tidak mengilap", image: "PAGE_1E")
                 ]
             ),
             QuestionModel(
                 questionNumber: 2,
                 questionTitle: "Seperti apa pori-pori wajahmu ketika dilihat dari depan cermin?",
-                choice: [
+                choices: [
                     Choice(title: "Pori-pori wajah tampak terlihat besar", image: "jerawat"),
                     Choice(title: "Kulit wajah tampak sedikit mengilap", image: "jerawat"),
                     Choice(title: "Pori-pori wajah tampak terlihat pada area dahi, hidung dan dagu", image: "jerawat"),
@@ -37,7 +40,7 @@ extension QuestionView {
             QuestionModel(
                 questionNumber: 3,
                 questionTitle: "Seperti apa tekstur kulit wajahmu?",
-                choice: [
+                choices: [
                     Choice(title: "Terasa tidak rata dan sedikit datar", image: "jerawat"),
                     Choice(title: "Kulit wajah tampak sedikit mengilap", image: "jerawat"),
                     Choice(title: "Terasa kasar dan kencang", image: "jerawat"),
@@ -47,7 +50,7 @@ extension QuestionView {
             QuestionModel(
                 questionNumber: 4,
                 questionTitle: "Saat difoto apakah wajahmu terlihat mengilap?",
-                choice: [
+                choices: [
                     Choice(title: "Selalu", image: "jerawat"),
                     Choice(title: "Kadang-kadang", image: "jerawat"),
                     Choice(title: "Sering", image: "jerawat"),
@@ -57,7 +60,7 @@ extension QuestionView {
             QuestionModel(
                 questionNumber: 5,
                 questionTitle: "Saat berada di lingkungan dengan kelembaban rendah, bagaimana kulit wajahmu? (saat tidak pakai produk apapun)",
-                choice: [
+                choices: [
                     Choice(title: "Terlihat mengilap, dan saya merasa membutuhkan moisturizers", image: "jerawat"),
                     Choice(title: "Saya merasa biasa-biasa saja", image: "jerawat"),
                     Choice(title: "Terasa kencang dan kaku pada area wajah yang kering", image: "jerawat"),
@@ -67,7 +70,7 @@ extension QuestionView {
             QuestionModel(
                 questionNumber: 6,
                 questionTitle: "Apakah wajahmu pernah mengalami komedo hitam atau komedo putih?",
-                choice: [
+                choices: [
                     Choice(title: "Selalu", image: "jerawat"),
                     Choice(title: "Jarang", image: "jerawat"),
                     Choice(title: "Kadang-kadang", image: "jerawat"),
@@ -80,11 +83,25 @@ extension QuestionView {
         func setCurrentIndex(newIndex: Int) {
             self.currentQuestionIndex = newIndex
         }
-
         
+        func getAnswerIndex(answerTitle: String) -> Int {
+            let choices = questionList[currentQuestionIndex].choices
+            var choiceIndex = -1
+            for (index, choice) in choices.enumerated() {
+                if choice.title == answerTitle {
+                    choiceIndex = index
+                    
+                }
+            }
+            
+            return choiceIndex
+        }
+
         func getIdentificationResult() {
             // identification result
-            
+            for answer in userAnswerList {
+                
+            }
         }
     }
 }

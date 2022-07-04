@@ -30,6 +30,7 @@
 		56A8E4062865A36400BF79DB /* IdentificationResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E4052865A36400BF79DB /* IdentificationResultView.swift */; };
 		56A8E4082865A44800BF79DB /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E4072865A44800BF79DB /* QuestionView.swift */; };
 		56C66CD3286C59410023D31A /* SkinProblemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C66CD2286C59410023D31A /* SkinProblemCard.swift */; };
+		56F0790028733DE600E4158C /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F078FF28733DE600E4158C /* ArrayExtension.swift */; };
 		56F8AEBF286B375700A8693C /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F8AEBE286B375700A8693C /* GradientButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		56A8E4052865A36400BF79DB /* IdentificationResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentificationResultView.swift; sourceTree = "<group>"; };
 		56A8E4072865A44800BF79DB /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		56C66CD2286C59410023D31A /* SkinProblemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinProblemCard.swift; sourceTree = "<group>"; };
+		56F078FF28733DE600E4158C /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		56F8AEBE286B375700A8693C /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +82,7 @@
 				567FCDF3286EF90300EEBF9F /* QuestionChoiceCell.swift */,
 				1DC148F32871AEC700ED30F9 /* TabBar.swift */,
 				567A4FC12870CAAC00083E57 /* ViewExtension.swift */,
+				56F078FF28733DE600E4158C /* ArrayExtension.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				56A8E4042865A31300BF79DB /* DashboardView.swift in Sources */,
 				567A4FC22870CAAC00083E57 /* ViewExtension.swift in Sources */,
 				56A8E4062865A36400BF79DB /* IdentificationResultView.swift in Sources */,
+				56F0790028733DE600E4158C /* ArrayExtension.swift in Sources */,
 				56A8E3FC2865916300BF79DB /* QuestionModel.swift in Sources */,
 				1D3DFA9D28707A990050BCCC /* OnBoardView2.swift in Sources */,
 				1D3DFA9F287081D70050BCCC /* OnBoardingView3.swift in Sources */,
