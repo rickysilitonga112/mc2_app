@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-enum SkinProblem {
-    case none
-    case berjerawat
-    case kusam
-}
-
 struct ScreenProblemView: View {
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
@@ -47,6 +41,7 @@ struct ScreenProblemView: View {
                             skinProblem = (skinProblem == .none || skinProblem == .berjerawat) ? .kusam : .none
                         }
                     } .padding(.horizontal, kHorizontalPadding)
+                    
                     VStack(alignment: .leading) {
                         Text("Jika tidak memiliki masalah wajah, lanjut tanpa mencentang!")
                             .foregroundColor(.white)
@@ -74,9 +69,6 @@ struct ScreenProblemView: View {
                         }
                     }
                     
-                    
-                    
-                    
                     Spacer()
                         .frame(height: 30)
                     
@@ -90,17 +82,13 @@ struct ScreenProblemView: View {
                                 .foregroundColor(.white)
                         }
                     }
-                    
-                    
                     Spacer()
-                      
                 }
             }
     //        .frame(width: screenWidth, height: screenHeight)
             .background(Color(red: 0/255, green: 20/255, blue: 34/255).edgesIgnoringSafeArea(.all))
             .navigationBarHidden(true)
         }
-        
     }
 }
 

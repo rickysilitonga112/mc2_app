@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct OnBoardingView: View {
-    private let screenWidth =
-    UIScreen.main.bounds.size.width
-    private let screenHeight =
-    UIScreen.main.bounds.size.height
+    private let screenWidth = UIScreen.main.bounds.size.width
+    private let screenHeight = UIScreen.main.bounds.size.height
     
     var body: some View {
         

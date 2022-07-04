@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct QuestionView: View {
-    @StateObject private var vm = ViewModel()
-    
     // layouting part
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
     
+    @StateObject private var vm = ViewModel()
+    @State var buttonText: String = "Selanjutnya"
     var body: some View {
         ZStack {
             VStack {
@@ -29,7 +29,7 @@ struct QuestionView: View {
                 
                 
                 VStack {
-                    Text(vm.questionList[vm.currentIndex - 1].questionTitle)
+                    Text(vm.questionList[vm.currentQuestionIndex].questionTitle)
                         .foregroundColor(.white)
                         .font(.title3)
                         .fontWeight(.bold)
@@ -39,9 +39,8 @@ struct QuestionView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
 //                        .background(Color.white)
                     
-                    
                     VStack(spacing: 14) {
-                        ForEach(vm.questionList[vm.currentIndex - 1].choice, id: \.id) {choice in
+                        ForEach(vm.questionList[vm.currentQuestionIndex].choice, id: \.id) {choice in
                             QuestionChoiceCell(choiceTitle: choice.title)
                         }
                     }
@@ -56,8 +55,11 @@ struct QuestionView: View {
                     HStack {
                         Button {
                             // do something
-                            if vm.currentIndex < vm.questionList.count {
-                                vm.currentIndex = vm.currentIndex + 1
+                            if vm.currentQuestionIndex < vm.questionList.count - 1 {
+                                vm.currentQuestionIndex = vm.currentQuestionIndex + 1
+                            } else {
+                                print("Go to result")
+                                buttonText = "Lihat Hasil"
                             }
                             
                         } label: {
@@ -65,7 +67,7 @@ struct QuestionView: View {
                                 .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
                                 .frame(width: 282, height: 50, alignment: .center)
                                 .overlay {
-                                    Text("Selanjutnya")
+                                    Text(buttonText)
                                         .foregroundColor(Color.white)
                                         .fontWeight(.bold)
                                 }
@@ -85,7 +87,7 @@ struct QuestionView: View {
                             HStack(spacing: 24) {
                                 ForEach(0 ..< vm.questionList.count, id: \.self) { item in
                                     Circle()
-                                        .if(vm.currentIndex == item + 1, transform: { view in
+                                        .if(vm.currentQuestionIndex == item, transform: { view in
                                             view.fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
                                         })
                                             .else(elseTransform: { view in
@@ -95,21 +97,19 @@ struct QuestionView: View {
                                         .overlay {
                                             Text("\(item + 1)")
                                                 .font(.footnote)
-                                                .foregroundColor((vm.currentIndex == item + 1) ? .white : .black)
+                                                .foregroundColor((vm.currentQuestionIndex == item) ? .white : .black)
                                         }
                                         .onTapGesture {
-                                            print("VM: \(vm.currentIndex)")
+                                            print("VM: \(vm.currentQuestionIndex)")
                                             print("Item: \(item)")
                                             
-                                            if vm.currentIndex >= item + 1 {
-                                                vm.currentIndex = item + 1
+                                            if vm.currentQuestionIndex >= item + 1 {
+                                                vm.currentQuestionIndex = item + 1
                                             }
                                         }
                                 }
                             }
                             .frame(height: 20, alignment: .center)
-                            
-                            
                         }
                     }
 //                    .frame( maxWidth: screenWidth - 48, maxHeight: 20, alignment: .center)

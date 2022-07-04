@@ -71,6 +71,7 @@ struct RoutinePageView: View {
                 }
                 Spacer()
                     .frame(height: 53)
+                
                 Capsule()
                     .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
                     .frame(width: 282, height: 50, alignment: .center)

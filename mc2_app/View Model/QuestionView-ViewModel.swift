@@ -10,7 +10,8 @@ import SwiftUI
 
 extension QuestionView {
     @MainActor class ViewModel: ObservableObject {
-        @Published var currentIndex: Int = 1
+        @Published var currentQuestionIndex: Int = 0
+        @Published var currentAnswerIndex: Int = 0
         
         let questionList: [QuestionModel] = [
             QuestionModel(
@@ -76,13 +77,13 @@ extension QuestionView {
         ]
         
         func setCurrentIndex(newIndex: Int) {
-            self.currentIndex = newIndex
+            self.currentQuestionIndex = newIndex
         }
 
         
         func getIdentificationResult() {
             // identification result
+            
         }
-                
     }
 }

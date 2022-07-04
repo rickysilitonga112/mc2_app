@@ -10,15 +10,26 @@ import SwiftUI
 struct SkinType: View {
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
+    
+    @State private var choosenSkinType: Int = 10
+    
+    private let skinType: [String] = [
+        "Saya memiliki jenis kulit Berminyak",
+        "Saya memiliki jenis kulit Normal",
+        "Saya memiliki jenis kulit Kering",
+        "Saya memiliki jenis kulit Kombinasi"
+    ]
+    
     var body: some View {
         ZStack {
-            VStack{
-                VStack{
-                    Text("Apa jenis kulit wajahmu?")
+            VStack {
+                VStack {
+                    Text("Apa jenis kulit \nwajahmu?")
                         .font(.largeTitle)
                         .fontWeight(.medium)
-                        .frame(width: 334, height: 82, alignment: .leading)
                         .foregroundColor(.white)
+                        .padding(.horizontal, 28)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .frame(width: screenWidth ,height: 220, alignment: .center)
                 .background(LinearGradient(gradient: Gradient(colors: [
@@ -26,78 +37,49 @@ struct SkinType: View {
                     Color(red: 0/255, green: 20/255, blue: 34/255),
                 ]), startPoint: .center, endPoint: .bottom))
                 
-                VStack{
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.40), Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.13)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .opacity(0.26)
-                            .shadow(radius: 3)
-                            .frame(width: 332, height: 67)
+                VStack {
+                    ForEach(0 ..< skinType.count, id: \.self) { index in
                         
-                        Text("Saya memiliki jenis kulit Berminyak")
-                            .font(.body)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.40), Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.13)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                .opacity(0.26)
+                                .shadow(radius: 3)
+                                .frame(width: 332, height: 67)
+                                
+                            Text(skinType[index])
+                                .font(.body)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
+                                .padding(.horizontal)
+                                .frame(width: 332, height: 67, alignment: .leading)
+                        }
+                        .onTapGesture(perform: {
+                            choosenSkinType = (choosenSkinType == index) ? 10 : index
+                            
+                        })
+                        .if(choosenSkinType == index) { view in
+                            view.border(.white, width: 2)
+                        }
                     }
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.40), Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.13)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .opacity(0.26)
-                            .shadow(radius: 3)
-                            .frame(width: 332, height: 67)
+                    
+                    Spacer()
+                        .frame(height: 50)
+                    
+                    
+                    Button {
+                        let finalUserSkinType = skinType[choosenSkinType]
+                        print(finalUserSkinType)
+                    } label: {
+                        Capsule()
+                            .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                            .frame(width: 282, height: 50, alignment: .center)
+                            .overlay {
+                                Text("Selanjutnya")
+                                    .foregroundColor(Color.white)
+                                    .fontWeight(.bold)
+                            }
                         
-                        Text("Saya memiliki jenis kulit Normal")
-                            .font(.body)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                    }
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.40), Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.13)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .opacity(0.26)
-                            .shadow(radius: 3)
-                            .frame(width: 332, height: 67)
-                        
-                        Text("Saya memiliki jenis kulit Kering")
-                            .font(.body)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                    }
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.40), Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.13)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .opacity(0.26)
-                            .shadow(radius: 3)
-                            .frame(width: 332, height: 67)
-                        
-                        Text("Saya memiliki jenis kulit Kombinasi")
-                            .font(.body)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                    }
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.40), Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.13)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .opacity(0.26)
-                            .shadow(radius: 3)
-                            .frame(width: 332, height: 67)
-                        
-                        Text("Saya memiliki jenis kulit Normal cenderung Berminyak")
-                            .font(.body)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                    }
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.40), Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.13)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .opacity(0.26)
-                            .shadow(radius: 3)
-                            .frame(width: 332, height: 67)
-                        
-                        Text("Saya memiliki jenis kulit Normal cenderung Kering")
-                            .font(.body)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
                     }
                     
                 }
