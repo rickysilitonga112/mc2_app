@@ -98,10 +98,53 @@ extension QuestionView {
         }
 
         func getIdentificationResult() {
-            // identification result
+            var answerA: Int = 0
+            var answerB: Int = 0
+            var answerC: Int = 0
+            var answerD: Int = 0
+            
+            var finalSkinType: UserSkinType
+            
             for answer in userAnswerList {
-                
+                if answer == 0 {
+                    answerA += 1
+                } else if answer == 1 {
+                    answerB += 1
+                } else if answer == 2 {
+                    answerC += 1
+                } else {
+                    answerD += 1
+                }
             }
+            
+            // MARK: - DEBUGGING
+            print("Answer A: \(answerA)")
+            print("Answer B: \(answerB)")
+            print("Answer C: \(answerC)")
+            print("Answer D: \(answerD)")
+            
+            
+            
+            // get result based on answer
+            if (answerA > answerB && answerA > answerC && answerA > answerD) {
+                finalSkinType = .berminyak
+            } else if (answerB > answerA && answerB > answerC && answerA > answerD) {
+                finalSkinType = .normal
+            } else if (answerC > answerA && answerC > answerB && answerC > answerD) {
+                finalSkinType = .kombinasi
+            } else if (answerD > answerA && answerD > answerB && answerD > answerC) {
+                finalSkinType = .kering
+            } else if (answerA == answerB) {
+                finalSkinType = .normalBerminyak
+            } else if (answerB == answerD) {
+                finalSkinType = .normalKering
+            } else {
+                finalSkinType = .kombinasi
+            }
+            
+            print("============================================")
+            print(finalSkinType)
+            print("============================================")
         }
     }
 }

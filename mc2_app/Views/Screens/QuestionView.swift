@@ -122,10 +122,14 @@ struct QuestionView: View {
                                         vm.userAnswerList.append(answerIndex)
                                         print(vm.userAnswerList)
                                         print("go to new page")
-                                        selectedAnswer = ""
                                         
                                         // MARK: - go to new page
+                                        vm.getIdentificationResult()
                                         session = "result"
+                                        
+                                        // set selected answer agar kosong
+                                        selectedAnswer = ""
+                                        
                                     }
                                 }
                                 
