@@ -11,10 +11,10 @@ struct IdentificationResultView: View {
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
     
+    @State var session: String? = nil
     
-    let jenisKulit: String
-    let masalahKulit: String
     
+    let result: String
     var body: some View {
         
         ZStack{
@@ -39,7 +39,7 @@ struct IdentificationResultView: View {
                         .fontWeight(.medium)
                         .foregroundColor(.white)
                     Spacer()
-                    Text("Kamu memiliki jenis kulit **\(jenisKulit)** dan permasalahan kulit wajahmu\n **\(masalahKulit)**")
+                    Text(.init(result))
                         .font(.title3)
                         .multilineTextAlignment(.center)
                         .frame(width: screenWidth - 56, height: 90)
@@ -65,28 +65,34 @@ struct IdentificationResultView: View {
                     .padding(.top, 35)
                     
                     Spacer()
-                    
-                    Button {
-                        // do something
-                    } label: {
-                        Capsule()
-                            .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .frame(width: 282, height: 50, alignment: .center)
-                            .overlay {
-                                Text("Lihat rekomendasi produk")
-                                    .foregroundColor(Color.white)
-                                    .fontWeight(.bold)
-                            }
+                    NavigationLink(destination: DashboardView(), tag: "dashboard", selection: $session) {
+                        
+                        Button {
+                            // do something
+                            session = "dashboard"
+                            
+                        } label: {
+                            Capsule()
+                                .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                .frame(width: 282, height: 50, alignment: .center)
+                                .overlay {
+                                    Text("Lihat rekomendasi produk")
+                                        .foregroundColor(Color.white)
+                                        .fontWeight(.bold)
+                                }
+                        }
                     }
-                    
                     Spacer()
                         .frame(height: 25)
                     
-                    Button {
-                        // do something
-                    } label: {
-                       Text("Ikuti challange 21 hari rutin skincare")
-                            .foregroundColor(.white)
+                    NavigationLink(destination: RoutinePageView(), tag: "routine", selection: $session) {
+                        Button {
+                            // do something
+                            session = "routine"
+                        } label: {
+                            Text("Ikuti challange 21 hari rutin skincare")
+                                .foregroundColor(.white)
+                        }
                     }
                 
                 }
@@ -105,7 +111,7 @@ struct IdentificationResultView: View {
     
     struct IdentificationResultView_Previews: PreviewProvider {
         static var previews: some View {
-            IdentificationResultView(jenisKulit: "Berminyak", masalahKulit: "Berjerawat")
+            IdentificationResultView(result: "Kamu memiliki jenis kulit **berminyak** dan permasalahan kulit wajahmu **berjerawat**")
         }
     }
 }

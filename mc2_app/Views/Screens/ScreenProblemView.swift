@@ -53,7 +53,7 @@ struct ScreenProblemView: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: QuestionView(), tag: "question", selection: $session) {
+                    NavigationLink(destination: QuestionView(skinProblem: skinProblem), tag: "question", selection: $session) {
                         Button {
                             // go to questionview
                             session = "question"

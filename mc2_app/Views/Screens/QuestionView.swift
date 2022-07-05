@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct QuestionView: View {
+    
+    let skinProblem: SkinProblem
     // layouting part
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
@@ -17,7 +19,7 @@ struct QuestionView: View {
     @State var buttonText: String = "Selanjutnya"
     @State var selectedAnswer: String = ""
     @State var answerIndex: Int = -1
-    
+    @State var resultPageString: String = ""
     @State var session: String? = nil
     
     var body: some View {
@@ -93,7 +95,7 @@ struct QuestionView: View {
                 
                 VStack {
                     HStack {
-                        NavigationLink(destination: IdentificationResultView(jenisKulit: "Berminyak", masalahKulit: "Berjerawat"), tag: "result", selection: $session) {
+                        NavigationLink(destination: IdentificationResultView(result: resultPageString), tag: "result", selection: $session) {
                             Button {
                                 // do something
                                 if selectedAnswer != "" {
@@ -124,7 +126,9 @@ struct QuestionView: View {
                                         print("go to new page")
                                         
                                         // MARK: - go to new page
-                                        vm.getIdentificationResult()
+                                        let skinType = vm.getIdentificationResult()
+                                        
+                                        resultPageString = vm.getResultInfo(skinProblem: skinProblem, skinType: skinType)
                                         session = "result"
                                         
                                         // set selected answer agar kosong
@@ -150,7 +154,6 @@ struct QuestionView: View {
                         .frame(height: 24)
                     
                     ZStack(alignment: .center) {
-                        
                         Rectangle()
                             .frame(width: 220, height: 2)
                             .foregroundColor(.white)
@@ -201,6 +204,6 @@ struct QuestionView: View {
 
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionView()
+        QuestionView(skinProblem: .berjerawat)
     }
 }

@@ -82,7 +82,10 @@ struct RoutinePageView: View {
                     }
                     Spacer()
             }
-        }.background(Color(red: 0/255, green: 20/255, blue: 34/255).edgesIgnoringSafeArea(.all))
+        }
+        .background(Color(red: 0/255, green: 20/255, blue: 34/255).edgesIgnoringSafeArea(.all))
+        .navigationBarHidden(true)
+        
     }
 }
 

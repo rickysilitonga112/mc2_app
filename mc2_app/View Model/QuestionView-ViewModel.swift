@@ -22,9 +22,9 @@ extension QuestionView {
                 questionNumber: 1,
                 questionTitle: "Seperti apa kulit wajahmu ketika bangun tidur?",
                 choices: [
-                    Choice(title: "Tampak mengilap dimana-mana", image: "PAGE_1A"),
+                    Choice(title: "Tampak mengilap dan berminyak dimana-mana", image: "PAGE_1A"),
                     Choice(title: "Kulit wajah tampak sedikit mengilap", image: "PAGE_1B"),
-                    Choice(title: "Kulit wajah tampak berminya pada area dahi, hidung, dan dagu", image: "PAGE_1C"),
+                    Choice(title: "Kulit wajah tampak berminyak pada area dahi, hidung dan dagu", image: "PAGE_1C"),
                     Choice(title: "Kulit wajah tampak biasa dan tidak mengilap", image: "PAGE_1E")
                 ]
             ),
@@ -33,18 +33,19 @@ extension QuestionView {
                 questionTitle: "Seperti apa pori-pori wajahmu ketika dilihat dari depan cermin?",
                 choices: [
                     Choice(title: "Pori-pori wajah tampak terlihat besar", image: "jerawat"),
-                    Choice(title: "Kulit wajah tampak sedikit mengilap", image: "jerawat"),
+                    Choice(title: "Pori-pori wajah hampir tidak terlihat", image: "jerawat"),
                     Choice(title: "Pori-pori wajah tampak terlihat pada area dahi, hidung dan dagu", image: "jerawat"),
+                    Choice(title: "Pori-pori wajah terlihat samar-samar", image: "jerawat")
                 ]
             ),
             QuestionModel(
                 questionNumber: 3,
                 questionTitle: "Seperti apa tekstur kulit wajahmu?",
                 choices: [
-                    Choice(title: "Terasa tidak rata dan sedikit datar", image: "jerawat"),
-                    Choice(title: "Kulit wajah tampak sedikit mengilap", image: "jerawat"),
-                    Choice(title: "Terasa kasar dan kencang", image: "jerawat"),
-                    Choice(title: "Terasa kasar, berminyak, ataupun lembut pada area yang berbeda", image: "jerawat")
+                    Choice(title: "Terasa tidak rata dan sedikit kasar", image: "jerawat"),
+                    Choice(title: "Terasa lembut dan halus", image: "jerawat"),
+                    Choice(title: "Terasa kasar, berminyak, atau pun lembut pada area yang berbeda", image: "jerawat"),
+                    Choice(title: "Terasa kering dan pecah-pecah", image: "jerawat")
                 ]
             ),
             QuestionModel(
@@ -97,13 +98,13 @@ extension QuestionView {
             return choiceIndex
         }
 
-        func getIdentificationResult() {
+        func getIdentificationResult() -> String {
             var answerA: Int = 0
             var answerB: Int = 0
             var answerC: Int = 0
             var answerD: Int = 0
             
-            var finalSkinType: UserSkinType
+            var finalSkinType: String
             
             for answer in userAnswerList {
                 if answer == 0 {
@@ -127,24 +128,37 @@ extension QuestionView {
             
             // get result based on answer
             if (answerA > answerB && answerA > answerC && answerA > answerD) {
-                finalSkinType = .berminyak
+                finalSkinType = "berminyak"
             } else if (answerB > answerA && answerB > answerC && answerA > answerD) {
-                finalSkinType = .normal
+                finalSkinType = "normal"
             } else if (answerC > answerA && answerC > answerB && answerC > answerD) {
-                finalSkinType = .kombinasi
+                finalSkinType = "kombinasi"
             } else if (answerD > answerA && answerD > answerB && answerD > answerC) {
-                finalSkinType = .kering
+                finalSkinType = "kering"
             } else if (answerA == answerB) {
-                finalSkinType = .normalBerminyak
+                finalSkinType = "normal cenderung berminyak"
             } else if (answerB == answerD) {
-                finalSkinType = .normalKering
+                finalSkinType = "normal cenderung kering"
             } else {
-                finalSkinType = .kombinasi
+                finalSkinType = "kombinasi"
             }
             
-            print("============================================")
-            print(finalSkinType)
-            print("============================================")
+//            print("============================================")
+//            print(finalSkinType)
+//            print("============================================")
+            
+            return finalSkinType
+        }
+        
+        
+        func getResultInfo(skinProblem: SkinProblem, skinType: String) -> String {
+            switch skinProblem {
+            case .none:
+                return "Kamu memiliki jenis kulit \(skinType)"
+            default:
+                return "Kamu memiliki jenis kulit **\(skinType)** dan permasalahan kulit wajahmu **\(skinProblem)**"
+            }
         }
     }
 }
+

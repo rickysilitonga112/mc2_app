@@ -11,8 +11,11 @@ struct DashboardView: View {
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
     
-    @State var skinType: String
-    @State var skinProblem: String
+    @State var skinType: String = ""
+    @State var skinProblem: String = ""
+    @State var session: String? = nil
+    
+    
     var skincareCategories: [SkincareCategory] = [
         SkincareCategory(title: "Cleanser", image: "CLEANSER", bg: Color(red: 172/255, green: 79/255, blue: 79/255)),
         SkincareCategory(title: "Serum", image: "SERUM", bg: Color(red: 145/255, green: 162/255, blue: 127/255)),
@@ -154,22 +157,24 @@ struct DashboardView: View {
                     Spacer()
                         .frame(height: 30)
                     
-                    Button {
-                        // do something
-                    } label: {
-                        Capsule()
-                            .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .frame(width: screenWidth - (kHorizontalPadding * 2), height: 50, alignment: .center)
-                            .overlay {
-                                Text("Ikuti Challange 21 Hari Skincare")
-                                    .foregroundColor(Color.white)
-                                    .fontWeight(.bold)
-                            }
-                            .padding(.top, 40)
-                            .padding(.bottom, 30)
-                        
+                    NavigationLink(destination: RoutinePageView(), tag: "routine", selection: $session) {
+                        Button {
+                            // do something
+                            session = "routine"
+                        } label: {
+                            Capsule()
+                                .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 255/255, green: 52/255, blue: 2/255), Color(red: 143/255, green: 76/255, blue: 195/255)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                .frame(width: screenWidth - (kHorizontalPadding * 2), height: 50, alignment: .center)
+                                .overlay {
+                                    Text("Ikuti Challange 21 Hari Skincare")
+                                        .foregroundColor(Color.white)
+                                        .fontWeight(.bold)
+                                }
+                                .padding(.top, 40)
+                                .padding(.bottom, 30)
+                            
+                        }
                     }
-                    
                 }
                 Spacer()
                 
@@ -177,6 +182,7 @@ struct DashboardView: View {
             .background(Color(red: 0/255, green: 20/255, blue: 34/255).edgesIgnoringSafeArea(.all))
             .ignoresSafeArea()
         }
+        .navigationBarHidden(true)
     }
 }
 
