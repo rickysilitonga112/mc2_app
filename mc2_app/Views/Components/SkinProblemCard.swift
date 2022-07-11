@@ -17,12 +17,9 @@ struct SkinProblemCard: View {
     
     var body: some View {
         RoundedRectangle(cornerRadius: 8)
-            .fill(LinearGradient(gradient: Gradient(colors: [
-                Color(red: 255/255, green: 235/255, blue: 255/255).opacity(0.4),
-                Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.13)
-            ]), startPoint: .topLeading, endPoint: .bottomTrailing))
+            .fill(kCellGradientBg)
             .opacity(0.26)
-            .frame(width: 156, height: 240, alignment: .center)
+            .frame(width: 170, height: 240, alignment: .center)
             .overlay {
                 ZStack {
                     VStack{

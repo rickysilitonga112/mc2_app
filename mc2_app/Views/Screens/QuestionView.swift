@@ -24,7 +24,9 @@ struct QuestionView: View {
     
     var body: some View {
         ZStack {
+            // root vstack
             VStack {
+                
                 ZStack {
                     Image("PAGE_1A")
                         .resizable()
@@ -32,22 +34,26 @@ struct QuestionView: View {
                         .frame(height: 160)
                         .padding(.top)
                 }
-                .frame(width: screenWidth ,height: 200, alignment: .center)
-                .background(LinearGradient(gradient: Gradient(colors: [
-                    Color(red: 248/255, green: 55/255, blue: 15/255, opacity: 0.37),Color(red: 0/255, green: 20/255, blue: 34/255),]), startPoint: .center, endPoint: .bottom))
+                .frame(width: screenWidth ,height: 220)
+                .background(kRedGradientBG)
                 
-                
+                // question title + option
                 VStack {
-                    Text(vm.questionList[vm.currentQuestionIndex].questionTitle)
-                        .foregroundColor(.white)
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .padding(.horizontal, kHorizontalPadding)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .multilineTextAlignment(.leading)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    // question title
+                    HStack {
+                        Text(vm.questionList[vm.currentQuestionIndex].questionTitle)
+                            .foregroundColor(.white)
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .multilineTextAlignment(.leading)
+                            .padding(.horizontal)
+                        
+                        Spacer()
+                    }
                     
-                    VStack(spacing: 14) {
+                    // option
+                    VStack(spacing: 12) {
                         ForEach(vm.questionList[vm.currentQuestionIndex].choices, id: \.id) { choice in
                             ZStack {
                                 RoundedRectangle(cornerRadius: 8)
@@ -196,7 +202,7 @@ struct QuestionView: View {
             }
         }
         .frame(width: screenWidth, height: screenHeight)
-        .background(Color(red: 0/255, green: 20/255, blue: 34/255).edgesIgnoringSafeArea(.all))
+        .background(Color(red: 0/255, green: 20/255, blue: 34/255))
 //        .navigationBarHidden(true)
         
     }

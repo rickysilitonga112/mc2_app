@@ -52,11 +52,10 @@ struct DashboardView: View {
                             .fontWeight(.semibold)
                         Spacer()
                     }
-                    .padding(.horizontal, kHorizontalPadding)
+                    .padding(.horizontal)
                     
                     ScrollView(.horizontal) {
                         HStack(spacing: 40) {
-                            
                             ForEach(0 ..< skincareCategories.count, id: \.self) { index in
                                 VStack {
                                     Circle()
